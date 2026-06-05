@@ -32,8 +32,8 @@ const History = () => {
   if (!user || loading) return <p style={{ textAlign: 'center', marginTop: '4rem' }}>Loading...</p>;
 
   return (
-    <div className="container animate-fade-in" style={{ padding: '2rem 1.5rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
+    <div className="container animate-fade-in" style={{ padding: '2rem 0' }}>
+      <div className="history-header">
         <div>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Your Scan History</h2>
           <p style={{ color: 'var(--text-muted)' }}>Isolated view of your previously scanned URLs and QR codes.</p>
@@ -53,12 +53,12 @@ const History = () => {
             const color = isSafe ? 'var(--safe)' : isSuspicious ? 'var(--warning)' : 'var(--danger)';
 
             return (
-              <div key={scan.id} className="glass-panel" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-                <div style={{ background: `rgba(${isSafe ? '16, 185, 129' : isSuspicious ? '245, 158, 11' : '239, 68, 68'}, 0.1)`, padding: '1rem', borderRadius: '1rem' }}>
+              <div key={scan.id} className="glass-panel history-card">
+                <div className="history-card-icon" style={{ background: `rgba(${isSafe ? '16, 185, 129' : isSuspicious ? '245, 158, 11' : '239, 68, 68'}, 0.1)` }}>
                   <Icon size={32} color={color} />
                 </div>
                 
-                <div style={{ flexGrow: 1, minWidth: '250px' }}>
+                <div className="history-card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
                     <h4 style={{ fontSize: '1.25rem', margin: 0, wordBreak: 'break-all' }}>{scan.url_content}</h4>
                     <a href={scan.url_content} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)' }}><ExternalLink size={16} /></a>
@@ -69,7 +69,7 @@ const History = () => {
                   </div>
                 </div>
 
-                <div style={{ textAlign: 'right', minWidth: '100px' }}>
+                <div className="history-card-score">
                   <div style={{ fontSize: '1.5rem', fontWeight: '800', color: color }}>{scan.trust_score.toFixed(1)}</div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{scan.threat_level}</div>
                 </div>

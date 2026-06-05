@@ -12,7 +12,7 @@ from scanner_pipeline import analyze_url
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="ORXamine API")
+app = FastAPI(title="QRXamine API")
 
 # Configure CORS
 app.add_middleware(
@@ -25,7 +25,7 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"status": "ORXamine API is running successfully!"}
+    return {"status": "QRXamine API is running successfully!"}
 
 @app.post("/api/users/signup", response_model=schemas.UserOut)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):

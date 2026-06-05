@@ -11,6 +11,7 @@ const Auth = () => {
 
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', password: '', confirmPassword: ''});
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const query = new URLSearchParams(location.search);
@@ -25,13 +26,16 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
+    setLoading(true);
     try {
       if (isLogin) {
         await login(formData.email, formData.password);
         navigate('/history');
       } else {
         if (formData.password !== formData.confirmPassword) {
-          setError("Passwords do not match"); return;
+          setError("Passwords do not match");
+          setLoading(false);
+          return;
         }
         await signup({ name: formData.name, email: formData.email, phone: formData.phone, password: formData.password });
         setIsLogin(true);
@@ -39,16 +43,18 @@ const Auth = () => {
       }
     } catch (err) {
       setError(err.response?.data?.detail || "Authentication Failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
-    <div className="container animate-fade-in" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
-      <div className="glass-panel" style={{ width: '100%', maxWidth: '400px' }}>
+    <div className="container auth-container animate-fade-in">
+      <div className="glass-panel auth-card">
         <h2 style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2rem' }}>
-          {isLogin ? 'Welcome Back' : 'Join ORXamine'}
+          {isLogin ? 'Welcome Back' : 'Join QRXamine'}
         </h2>
         {error && <div style={{ background: 'rgba(239, 68, 68, 0.1)', color: 'var(--danger)', padding: '1rem', borderRadius: '0.5rem', marginBottom: '1rem', border: '1px solid var(--danger)' }}>{error}</div>}
         
@@ -98,8 +104,14 @@ const Auth = () => {
             </div>
           )}
 
-          <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
-            {isLogin ? 'Sign In' : 'Sign Up'}
+          <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }} disabled={loading}>
+            {loading ? (
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                <span className="spinner-mini"></span> Please wait...
+              </span>
+            ) : (
+              isLogin ? 'Sign In' : 'Sign Up'
+            )}
           </button>
         </form>
 

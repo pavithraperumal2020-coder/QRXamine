@@ -84,12 +84,12 @@ const Scan = () => {
   if (!user) return null;
 
   return (
-    <div className="container animate-fade-in" style={{ padding: '2rem 1.5rem', maxWidth: '600px' }}>
+    <div className="container scan-container animate-fade-in">
       <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '2rem' }}>Scanner Module</h2>
       
       {!result && !analyzing && (
-        <div className="glass-panel">
-          <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+        <div className="glass-panel scanner-card">
+          <div className="scan-tab-group">
             <button className={`btn ${activeTab === 'qr' ? 'btn-primary' : 'btn-outline'}`} style={{ flex: 1 }} onClick={() => setActiveTab('qr')}>
               <Camera size={18} /> Scan QR
             </button>
@@ -115,7 +115,7 @@ const Scan = () => {
       )}
 
       {analyzing && (
-        <div className="glass-panel" style={{ textAlign: 'center', padding: '4rem 2rem' }}>
+        <div className="glass-panel analyzing-panel">
           <Loader size={48} color="var(--primary)" style={{ animation: 'spin 2s linear infinite', margin: '0 auto 2rem auto' }} />
           <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Analyzing Threat Vectors...</h3>
           <p style={{ color: 'var(--text-muted)' }}>Running URL through LightGBM and VirusTotal engines.</p>

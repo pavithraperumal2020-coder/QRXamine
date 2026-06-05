@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div className="container animate-fade-in" style={{ padding: '4rem 1.5rem', textAlign: 'center' }}>
-      <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>
+    <div className="container hero-container animate-fade-in">
+      <h1 className="hero-title">
         Secure your digital world with <br />
-        <span className="text-gradient">ORXamine</span>
+        <span className="text-gradient">QRXamine</span>
       </h1>
-      <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
+      <p className="hero-subtitle">
         Experience enterprise-grade security for your QR codes and URLs. Advanced threat analysis powered by Machine Learning and zero-trust validation.
       </p>
 
-      <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '5rem' }}>
-        <Link to="/scan" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.125rem' }}>Start Scanning</Link>
-        <Link to="/about" className="btn btn-outline" style={{ padding: '1rem 2rem', fontSize: '1.125rem' }}>Learn More</Link>
+      <div className="hero-buttons">
+        <Link to="/scan" className="btn btn-primary">Start Scanning</Link>
+        <Link to="/about" className="btn btn-outline">Learn More</Link>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }} className="delay-200 animate-fade-in">

@@ -32,7 +32,7 @@ const Helpline = () => {
         <div className="glass-panel" style={{ border: '1px solid var(--danger)', background: 'rgba(239, 68, 68, 0.05)' }}>
           <PhoneCall color="var(--danger)" size={40} style={{ marginBottom: '1rem' }} />
           <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>National Helpline</h3>
-          <p style={{ fontSize: '3rem', fontWeight: '800', margin: '1rem 0' }}>1930</p>
+          <p className="helpline-number">1930</p>
           <p style={{ color: 'var(--text-muted)' }}>Call immediately if money has been deducted from your account fraudulently.</p>
         </div>
 
@@ -69,32 +69,34 @@ const Helpline = () => {
           <Gavel color="var(--primary)" size={32} />
           <h3 style={{ fontSize: '1.5rem', margin: 0 }}>Cyber Law Awareness</h3>
         </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-          <thead>
-            <tr style={{ borderBottom: '1px solid var(--panel-border)', color: 'var(--text-muted)' }}>
-              <th style={{ padding: '1rem 0' }}>Crime Type</th>
-              <th style={{ padding: '1rem 0' }}>Legal Section</th>
-              <th style={{ padding: '1rem 0' }}>Punishment</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-              <td style={{ padding: '1rem 0' }}>Identity Theft / Phishing</td>
-              <td>IT Act, Sec 66C</td>
-              <td>Up to 3 yrs imprisonment + ₹1 Lakh fine</td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-              <td style={{ padding: '1rem 0' }}>Cheating by Personation</td>
-              <td>IT Act, Sec 66D</td>
-              <td>Up to 3 yrs imprisonment + ₹1 Lakh fine</td>
-            </tr>
-            <tr>
-              <td style={{ padding: '1rem 0' }}>Publishing Malicious Content</td>
-              <td>IT Act, Sec 67</td>
-              <td>Up to 3 yrs imprisonment + ₹5 Lakh fine</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="table-responsive">
+          <table style={{ width: '100%', minWidth: '600px', borderCollapse: 'collapse', textAlign: 'left' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid var(--panel-border)', color: 'var(--text-muted)' }}>
+                <th style={{ padding: '1rem 0' }}>Crime Type</th>
+                <th style={{ padding: '1rem 0' }}>Legal Section</th>
+                <th style={{ padding: '1rem 0' }}>Punishment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                <td style={{ padding: '1rem 0' }}>Identity Theft / Phishing</td>
+                <td>IT Act, Sec 66C</td>
+                <td>Up to 3 yrs imprisonment + ₹1 Lakh fine</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                <td style={{ padding: '1rem 0' }}>Cheating by Personation</td>
+                <td>IT Act, Sec 66D</td>
+                <td>Up to 3 yrs imprisonment + ₹1 Lakh fine</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '1rem 0' }}>Publishing Malicious Content</td>
+                <td>IT Act, Sec 67</td>
+                <td>Up to 3 yrs imprisonment + ₹5 Lakh fine</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </div>

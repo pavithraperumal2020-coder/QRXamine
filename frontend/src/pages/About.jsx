@@ -4,14 +4,14 @@ import { Shield, Target, Smartphone } from 'lucide-react';
 const About = () => {
   return (
     <div className="container animate-fade-in" style={{ padding: '2rem 1.5rem', maxWidth: '800px' }}>
-      <h2 style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '2rem' }}>About <span className="text-gradient">ORXamine</span></h2>
+      <h2 style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '2rem' }}>About <span className="text-gradient">QRXamine</span></h2>
       
       <div className="glass-panel" style={{ marginBottom: '2rem', fontSize: '1.125rem', color: 'var(--text-muted)' }}>
         <p style={{ marginBottom: '1rem' }}>
-          <strong>ORXamine</strong> is a next-generation cybersecurity platform designed to protect users from malicious QR codes and deceptive URLs that facilitate phishing, malware distribution, and identity theft.
+          <strong>QRXamine</strong> is a next-generation cybersecurity platform designed to protect users from malicious QR codes and deceptive URLs that facilitate phishing, malware distribution, and identity theft.
         </p>
         <p>
-          With the rapid adoption of QR codes for payments, restaurant menus, and marketing, attackers have increasingly utilized "Quishing" (QR Phishing). ORXamine acts as a critical intermediary layer, neutralizing threats before they reach your device's browser.
+          With the rapid adoption of QR codes for payments, restaurant menus, and marketing, attackers have increasingly utilized "Quishing" (QR Phishing). QRXamine acts as a critical intermediary layer, neutralizing threats before they reach your device's browser.
         </p>
       </div>
 
